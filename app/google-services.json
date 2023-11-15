@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "92320136129",
+    "firebase_url": "https://fir-prueba-df1e8-default-rtdb.firebaseio.com",
+    "project_id": "fir-prueba-df1e8",
+    "storage_bucket": "fir-prueba-df1e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92320136129:android:c31108875c278cf45e4d40",
+        "android_client_info": {
+          "package_name": "com.example.proyecto_p"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSl_0e656KvvthUmBa7Il-OGR3HlfKHW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

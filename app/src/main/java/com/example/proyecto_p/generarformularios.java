@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class generarformularios extends AppCompatActivity {
-    private Button btngenerar, btnvolver;
+    private Button btngenerar, btnvolver, btnLista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,12 +17,13 @@ public class generarformularios extends AppCompatActivity {
 
         Button btngenerar = findViewById(R.id.btngenerar);
         Button btnvolver = findViewById(R.id.btnvolver);
+        Button btnLista = findViewById(R.id.btnLista);
         btngenerar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Redirige a ThirdActivity al hacer clic en el botón
-                Intent intent = new Intent(generarformularios.this, formularios.class);
-                startActivity(intent);
+                Intent a = new Intent(generarformularios.this, formularios.class);
+                startActivity(a);
             }
         });
 
@@ -30,8 +31,16 @@ public class generarformularios extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Redirige a ThirdActivity al hacer clic en el botón
-                Intent intent = new Intent(generarformularios.this, MainActivity.class);
-                startActivity(intent);
+                Intent b = new Intent(generarformularios.this, MainActivity.class);
+                startActivity(b);
+            }
+        });
+
+        btnLista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(generarformularios.this, listaformularios.class);
+                startActivity(i);
             }
         });
 

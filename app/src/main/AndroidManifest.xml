@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Proyecto_p"
         tools:targetApi="31">
         <activity
+            android:name=".listaformularios"
+            android:exported="false" />
+        <activity
             android:name=".formularios"
             android:exported="false" />
         <activity
