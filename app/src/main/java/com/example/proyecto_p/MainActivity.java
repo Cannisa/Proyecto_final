@@ -10,13 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar pb1;
     private EditText edt1, edt2;
 
-    @SuppressLint("MissingInflatedId")
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,9 +72,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void inutilizado(){
+    private void inicializarFirebase(){
+        FirebaseApp.initializeApp(this);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference databasereference = firebaseDatabase.getReference();
 
     }
+
 
     //aqui necesitare estar conectado a una base de datos con todos los datos de los usuarios que deben conectarse, cuande creé la base de datos implementare un comprobador
     // que compruebe los datos ingresados y permita o rechaze el ingreso al usuario.
