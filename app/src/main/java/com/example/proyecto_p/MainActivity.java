@@ -73,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    private void inutilizado(){
+
+    }
+
     //aqui necesitare estar conectado a una base de datos con todos los datos de los usuarios que deben conectarse, cuande creé la base de datos implementare un comprobador
     // que compruebe los datos ingresados y permita o rechaze el ingreso al usuario.
 
