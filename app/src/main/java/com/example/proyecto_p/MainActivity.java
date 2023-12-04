@@ -15,13 +15,32 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.UUID;
+import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private Handler handler;
     private Button btn1;
     private ProgressBar pb1;
-    private EditText edt1, edt2;
+    private EditText edtrut, edtnombre, edtapellido, edtcorreo;
+    private static final String BROKER_URL = "mqtt://androidtestsiqq.cloud.shiftr.io:1883";
+    private static final String CLIENT_ID = "Labor Time";
+    private MqttHandler mqttHandler;
+    protected void onDestroy() {
+        mqttHandler.disconnect();
+        super.onDestroy();
+    }
+    private void publishMessage(String topic, String message){
+        Toast.makeText(this, "Publishing message: " + message, Toast.LENGTH_SHORT).show();
+        mqttHandler.publish(topic,message);
+    }
+
+    private void subscribeToTopic(String topic){
+        Toast.makeText(this, "Subscribing to topic"+ topic, Toast.LENGTH_SHORT).show();
+        mqttHandler.subscribe(topic);
+    }
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -34,10 +53,13 @@ public class MainActivity extends AppCompatActivity {
         handler = new Handler();
         btn1 = (Button) findViewById(R.id.btn1);
         pb1 = (ProgressBar) findViewById(R.id.pb1);
-        edt1 = (EditText) findViewById(R.id.edt1);
-        edt2 = (EditText) findViewById(R.id.edt2);
+        edtrut = (EditText) findViewById(R.id.edtrut);
+        edtnombre = (EditText) findViewById(R.id.edtnombre);
+        edtapellido = (EditText) findViewById(R.id.edtapellido);
+        edtcorreo = (EditText) findViewById(R.id.edtcorreo);
 
 
+        //inicializarFirebase();
         showProgressBar();
         hideProgressBar();
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
                 }, 3000);
             }
         });
+
+        mqttHandler = new MqttHandler();
+        mqttHandler.connect(BROKER_URL,CLIENT_ID, getApplicationContext());
+        subscribeToTopic("Tema1");
+        publishMessage("Tema1", "hola");
+
     }
     private void showProgressBar() {
         pb1.setVisibility(View.VISIBLE);
@@ -72,12 +100,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void inicializarFirebase(){
+    /*private void inicializarFirebase(){
         FirebaseApp.initializeApp(this);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databasereference = firebaseDatabase.getReference();
 
+        Usuario u = new Usuario();
+        u.setUid(UUID.randomUUID().toString());
+        u.setRut(rut);
+        u.setNombre(nombre);
+        u.setApellido(apellido);
+        u.setCorreo(correo);
+
     }
+
+     */
 
 
     //aqui necesitare estar conectado a una base de datos con todos los datos de los usuarios que deben conectarse, cuande creé la base de datos implementare un comprobador

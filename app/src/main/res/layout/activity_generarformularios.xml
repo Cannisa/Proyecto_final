@@ -33,6 +33,6 @@
         android:layout_width="181dp"
         android:layout_height="57dp"
         android:text="Ver formularios"
-        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteX="115dp"
         tools:layout_editor_absoluteY="93dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
