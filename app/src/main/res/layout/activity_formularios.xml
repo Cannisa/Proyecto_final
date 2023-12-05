@@ -17,7 +17,7 @@
         android:textColor="#ECE0E0" />
 
     <EditText
-        android:id="@+id/datePicker"
+        android:id="@+id/etFecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -31,7 +31,7 @@
         android:textColor="#E6DBDB" />
 
     <EditText
-        android:id="@+id/timePicker"
+        android:id="@+id/etHora"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -45,7 +45,7 @@
         android:textColor="#ECE7E7" />
 
     <EditText
-        android:id="@+id/turno"
+        android:id="@+id/etTurno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -59,7 +59,7 @@
         android:textColor="#DACBCB" />
 
     <EditText
-        android:id="@+id/horainicio"
+        android:id="@+id/etInicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -72,7 +72,7 @@
         android:textColor="#ECE4E4" />
 
     <EditText
-        android:id="@+id/horatermino"
+        android:id="@+id/etTermino"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"

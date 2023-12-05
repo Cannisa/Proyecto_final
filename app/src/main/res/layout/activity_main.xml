@@ -26,7 +26,7 @@
             android:textColor="#FBF5F5" />
 
         <EditText
-            android:id="@+id/edtrut"
+            android:id="@+id/etRut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -37,41 +37,11 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nombre:"
+            android:text="Cotraseña:"
             android:textColor="#EFEBEB" />
 
         <EditText
-            android:id="@+id/edtnombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="#FFFFFF" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Apellido:"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/edtapellido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="#FFFFFF" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Correo:"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/edtcorreo"
+            android:id="@+id/etContraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

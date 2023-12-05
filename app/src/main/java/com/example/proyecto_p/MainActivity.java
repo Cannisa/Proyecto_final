@@ -2,7 +2,6 @@ package com.example.proyecto_p;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,11 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.UUID;
 import android.widget.Toast;
 
 
@@ -24,7 +21,11 @@ public class MainActivity extends AppCompatActivity {
     private Handler handler;
     private Button btn1;
     private ProgressBar pb1;
-    private EditText edtrut, edtnombre, edtapellido, edtcorreo;
+    private EditText etRut;
+    private EditText etContraseña;
+
+    private Usuario usuario1;
+    private Usuario usuario2;
     private static final String BROKER_URL = "mqtt://androidtestsiqq.cloud.shiftr.io:1883";
     private static final String CLIENT_ID = "Labor Time";
     private MqttHandler mqttHandler;
@@ -50,13 +51,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        usuario1 = new Usuario("rut1", "contraseña1");
+        usuario2 = new Usuario("rut2", "contraseña2");
+
         handler = new Handler();
         btn1 = (Button) findViewById(R.id.btn1);
         pb1 = (ProgressBar) findViewById(R.id.pb1);
-        edtrut = (EditText) findViewById(R.id.edtrut);
-        edtnombre = (EditText) findViewById(R.id.edtnombre);
-        edtapellido = (EditText) findViewById(R.id.edtapellido);
-        edtcorreo = (EditText) findViewById(R.id.edtcorreo);
+        etRut = (EditText) findViewById(R.id.etRut);
+        etContraseña = (EditText) findViewById(R.id.etContraseña);
 
 
         //inicializarFirebase();
@@ -65,19 +67,15 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // se simula una carga de progresbar
-                showProgressBar();
-
-                // Simulamos un proceso de inicio de sesión
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        hideProgressBar();
-                        // Cambia a la nueva interfaz después de la carga
-                        cambiarinterfaz();
-                    }
-                }, 3000);
+               String rutIngresado = etRut.getText().toString();
+               String contraseñaIngresada = etContraseña.getText().toString();
+               if (usuario1.getRut().equals(rutIngresado) && usuario1.getContraseña().equals(contraseñaIngresada)){
+                   Toast.makeText(MainActivity.this, "inicio de sesión exitoso para usuario1", Toast.LENGTH_SHORT).show();
+               } else if (usuario2.getRut().equals(rutIngresado) && usuario2.getContraseña().equals(contraseñaIngresada)){
+                   Toast.makeText(MainActivity.this, "inicio de sesion exitoso para usuario2", Toast.LENGTH_SHORT).show();
+               } else {
+                   Toast.makeText(MainActivity.this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+               }
             }
         });
 

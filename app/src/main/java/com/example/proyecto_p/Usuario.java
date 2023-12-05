@@ -1,18 +1,13 @@
 package com.example.proyecto_p;
 
 public class Usuario {
-    String rut;
-    String nombre;
-    String apellido;
-    String correo;
+   private String rut;
+   private String contraseña;
 
-    public Usuario() {
+    public Usuario(String rut, String contraseña) {
         this.rut = rut;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.correo = correo;
+        this.contraseña = contraseña;
     }
-
     public String getRut() {
         return rut;
     }
@@ -21,27 +16,11 @@ public class Usuario {
         this.rut = rut;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 }

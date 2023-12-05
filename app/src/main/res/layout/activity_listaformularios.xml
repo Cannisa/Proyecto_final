@@ -7,4 +7,11 @@
     android:background="@drawable/bg_color"
     tools:context=".listaformularios">
 
+    <TextView
+        android:id="@+id/tvListaFormularios"
+        android:layout_width="353dp"
+        android:layout_height="216dp"
+        android:textColor="#F4F4F4"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
