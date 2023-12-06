@@ -2,8 +2,11 @@ package com.example.proyecto_p;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.common.reflect.TypeToken;
@@ -13,15 +16,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+
 
 public class listaformularios extends AppCompatActivity {
     private TextView tvListaFormularios;
+    private Button btnVolver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listaformularios);
+        btnVolver = (Button) findViewById(R.id.btnVolver);
 
         tvListaFormularios = findViewById(R.id.tvListaFormularios);
 
@@ -30,6 +35,15 @@ public class listaformularios extends AppCompatActivity {
 
         // Mostrar la lista de formularios en un TextView o en otro componente según tu diseño
         mostrarListaFormularios(listaFormularios);
+
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent (listaformularios.this, generarformularios.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     private List<Formulario> obtenerListaFormularios() {

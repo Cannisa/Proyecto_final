@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.common.reflect.TypeToken;
 
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 public class formularios extends AppCompatActivity {
     private Button btnsaveFormulario;
@@ -44,25 +42,18 @@ public class formularios extends AppCompatActivity {
         btnsaveFormulario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Obtener la información del formulario
                 String fecha = etFecha.getText().toString();
                 String hora = etHora.getText().toString();
                 String turno = etTurno.getText().toString();
                 String inicio = etInicio.getText().toString();
                 String termino = etTermino.getText().toString();
 
-                // Crear una instancia de la clase Formulario
-                Formulario nuevoFormulario = new Formulario(fecha, hora, turno, inicio, termino);
-
-                // Guardar la información del formulario en SharedPreferences
-                guardarFormulario(nuevoFormulario);
-
-                // Opcional: Puedes agregar una confirmación o redirigir a otra actividad aquí
+                guardarFormulario();
             }
         });
     }
 
-    private void guardarFormulario(String fecha, String hora, String turno, String inicio, String termino) {
+    private void guardarFormulario() {
         // Obtener la referencia a SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("ListaFormularios", MODE_PRIVATE);
 
@@ -76,7 +67,7 @@ public class formularios extends AppCompatActivity {
             listaFormularios = new Gson().fromJson(listaFormulariosJson, listaFormulariosType);
         }
         // Crear un nuevo formulario
-        Formulario nuevoFormulario = new Formulario(fecha, hora, turno, inicio, termino);
+        Formulario nuevoFormulario = new Formulario(etFecha, etHora, etTurno, etInicio, etTermino);
 
         // Agregar el nuevo formulario a la lista
         listaFormularios.add(nuevoFormulario);

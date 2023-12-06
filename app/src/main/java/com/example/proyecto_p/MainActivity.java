@@ -10,10 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import android.widget.Toast;
+
+import java.util.UUID;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar pb1;
     private EditText etRut;
     private EditText etContraseña;
+    /*private String rut;
+    private String nombre;
+    private String apellido;
+    private String correo;
+
+     */
 
     private Usuario usuario1;
     private Usuario usuario2;
@@ -112,11 +121,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-     */
+    */
 
 
-    //aqui necesitare estar conectado a una base de datos con todos los datos de los usuarios que deben conectarse, cuande creé la base de datos implementare un comprobador
-    // que compruebe los datos ingresados y permita o rechaze el ingreso al usuario.
+
+
 
 
 }
